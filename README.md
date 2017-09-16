@@ -4,6 +4,11 @@ A tiny, secure URL-friendly unique string ID generator.
 
 Ruby implementation of original NanoID https://github.com/ai/nanoid
 
+# Installation
+Into Gemfile / gems.rb add:
+
+```gem 'nanoid'```
+
 # Usage
 
 ## Default settings:
