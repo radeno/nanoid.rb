@@ -13,7 +13,7 @@ Into Gemfile / gems.rb add:
 
 ## Default settings:
 
-Size: 22 character length
+Size: 21 character length
 
 Alphabet: _~0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ
 
