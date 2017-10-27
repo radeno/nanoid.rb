@@ -1,8 +1,10 @@
+# frozen_string_literal: true
+
 require 'securerandom'
 
 module Nanoid
   MASKS = [15, 31, 63, 127, 255].freeze
-  SAFE_ALPHABET = '_~0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ'.freeze
+  SAFE_ALPHABET = '_~0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ'
 
   def self.generate(size: 22, alphabet: SAFE_ALPHABET)
     return simple_generate(size: size) if alphabet == SAFE_ALPHABET
