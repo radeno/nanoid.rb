@@ -25,21 +25,18 @@ module Nanoid
     step = (1.6 * mask * size / alphabet_size).ceil
 
     id = ''.dup
-    catch :computed do
-      loop do
-        bytes = random_bytes(size)
-        (0...step).each do |i|
-          byte = bytes[i] & mask
-          character = byte && alphabet[byte]
-          if character
-            id << character
-            throw :computed if id.size == size
-          end
+
+    loop do
+      bytes = random_bytes(size)
+      (0...step).each do |idx|
+        byte = bytes[idx] & mask
+        character = byte && alphabet[byte]
+        if character
+          id << character
+          return id if id.size == size
         end
       end
     end
-
-    id
   end
 
   def self.random_bytes(size)
