@@ -13,9 +13,10 @@ Gem::Specification.new do |s|
   s.require_paths = ['lib']
 
   s.required_ruby_version = '>= 2.0'
+  s.add_development_dependency 'benchmark-ips', '>= 2.7'
   s.add_development_dependency 'bundler', '>= 1.15'
-  s.add_development_dependency 'rake', '>= 12.0'
   s.add_development_dependency 'minitest', '>= 5.10'
-  s.add_development_dependency 'reek', '>= 4.5'
+  s.add_development_dependency 'rake', '>= 12.0'
+  s.add_development_dependency 'reek', '>= 5.0'
   s.add_development_dependency 'rubocop', '>= 0.5'
 end

@@ -3,13 +3,17 @@
 require 'securerandom'
 
 module Nanoid
-  SAFE_ALPHABET = '_~0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ'
+  SAFE_ALPHABET = '_-0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ'
 
-  def self.generate(size: 21, alphabet: SAFE_ALPHABET)
+  def self.generate(size: 21, alphabet: SAFE_ALPHABET, non_secure: false)
+    return non_secure_generate(size: size, alphabet: alphabet) if non_secure
+
     return simple_generate(size: size) if alphabet == SAFE_ALPHABET
 
     complex_generate(size: size, alphabet: alphabet)
   end
+
+  private
 
   def self.simple_generate(size:)
     bytes = random_bytes(size)
@@ -37,6 +41,18 @@ module Nanoid
         end
       end
     end
+  end
+
+  def self.non_secure_generate(size:, alphabet:)
+    alphabet_size = alphabet.size
+
+    id = ''.dup
+
+    size.times do
+      id << alphabet[(Random.rand * alphabet_size).floor]
+    end
+
+    id
   end
 
   def self.random_bytes(size)

@@ -50,6 +50,14 @@ describe Nanoid do
   end
 
   it 'generates with custom settings' do
-    Nanoid.generate(size: 12, alphabet: '1234567890abcdef')
+    assert_kind_of(String, Nanoid.generate(size: 12, alphabet: '1234567890abcdef'))
+  end
+
+  it 'generates non secure' do
+    assert_kind_of(String, Nanoid.generate(non_secure: true))
+  end
+
+  it 'generates non secure with options' do
+    assert_equal('aaaaa', Nanoid.generate(size: 5, alphabet: 'a', non_secure: true))
   end
 end
