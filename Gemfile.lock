@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    nanoid (0.2.0)
+    nanoid (1.0.0)
 
 GEM
   remote: https://rubygems.org/
@@ -62,4 +62,4 @@ RUBY VERSION
    ruby 2.4.2p198
 
 BUNDLED WITH
-   1.15.4
+   1.17.1
