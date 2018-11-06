@@ -1,6 +1,6 @@
 # nanoid.rb
 
-This is ReadMe for version 2.0, if you looking for version compatible with nanoid.js 1.x look on [branch v1.x.](https://github.com/radeno/nanoid.rb/tree/v1.x)
+This is ReadMe for version 2.0, if you looking for version compatible with NanoID 1.x look in [branch v1.x.](https://github.com/radeno/nanoid.rb/tree/v1.x)
 
 A tiny, secure URL-friendly unique string ID generator.
 

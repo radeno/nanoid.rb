@@ -7,7 +7,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
-- Compatibility with original Javascript implementation [Nanoid 2.0](https://github.com/ai/nanoid/blob/master/CHANGELOG.md#20).
+- Compatibility with original Javascript implementation [NanoID 2.0](https://github.com/ai/nanoid/blob/master/CHANGELOG.md#20).
 
 ### Added
 
@@ -15,7 +15,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Changed
 
-- Remplaced default alphabet character `~` (tilde) with `-` (dash)
+- Replaced default alphabet character `~` (tilde) with `-` (dash)
 
 ## [1.0.0] - 2018-11-06
 
