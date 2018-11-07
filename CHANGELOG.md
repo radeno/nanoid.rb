@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [2.0.0] - 2018-11-07
+
 - Compatibility with original Javascript implementation [NanoID 2.0](https://github.com/ai/nanoid/blob/master/CHANGELOG.md#20).
 
 ### Added
