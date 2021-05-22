@@ -11,7 +11,7 @@ GEM
       descendants_tracker (~> 0.0.4)
       ice_nine (~> 0.11.0)
       thread_safe (~> 0.3, >= 0.3.1)
-    benchmark-ips (2.7.2)
+    benchmark-ips (2.9.0)
     codeclimate-engine-rb (0.4.1)
       virtus (~> 1.0)
     coercible (1.0.0)
