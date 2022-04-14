@@ -26,7 +26,7 @@ describe Nanoid do
   end
 
   it 'has no collisions for million entries as 21 characters length' do
-    count = 100_000
+    count = 1_000_000
     generated = {}
 
     count.times do
@@ -38,7 +38,7 @@ describe Nanoid do
   end
 
   it 'has no collisions for milion entries with 9 characters and base alphabet' do
-    count = 100_000
+    count = 1_000_000
     generated = {}
 
     count.times do
