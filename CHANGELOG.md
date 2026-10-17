@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [2.0.1] - 2026-10-17
+
 ### Fixed
 
 - Fixed infinite loop in `Nanoid.generate` with a custom `alphabet` when `size` is `0` or a non-integer (ported fix from upstream NanoID's handling of these cases).
