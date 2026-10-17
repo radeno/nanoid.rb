@@ -6,7 +6,7 @@ PATH
 GEM
   remote: https://rubygems.org/
   specs:
-    benchmark-ips (2.7.2)
+    benchmark-ips (2.15.1)
     minitest (5.11.3)
     rake (12.3.3)
 
@@ -14,7 +14,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  benchmark-ips (~> 2.7.2)
+  benchmark-ips (~> 2.15.1)
   minitest (~> 5.11.3)
   nanoid!
   rake (~> 12.3.3)

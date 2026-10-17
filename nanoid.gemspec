@@ -17,7 +17,7 @@ Gem::Specification.new do |s|
   # Later rake needs 2.2, later minitest needs 2.3, and benchmark-ips
   # does not declare a Ruby requirement so a newer release would be
   # installed on Ruby 2.0 and then fail.
-  s.add_development_dependency 'benchmark-ips', '~> 2.7.2'
+  s.add_development_dependency 'benchmark-ips', '~> 2.15.1'
   s.add_development_dependency 'minitest', '~> 5.11.3'
   s.add_development_dependency 'rake', '~> 12.3.3'
 end
