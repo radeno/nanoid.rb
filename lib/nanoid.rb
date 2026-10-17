@@ -7,11 +7,11 @@ module Nanoid
     size = normalize_size(size)
     return '' if size.zero?
 
-    return non_secure_generate(size: size, alphabet: alphabet) if non_secure
+    return non_secure_generate(size, alphabet) if non_secure
 
-    return simple_generate(size: size) if alphabet == SAFE_ALPHABET
+    return simple_generate(size) if alphabet == SAFE_ALPHABET
 
-    complex_generate(size: size, alphabet: alphabet)
+    complex_generate(size, alphabet)
   end
 
   private
@@ -23,7 +23,8 @@ module Nanoid
     raise ArgumentError, "size must be a number, got #{size.class}" unless size.is_a?(Numeric)
 
     size = size.to_i
-    raise ArgumentError, 'size must not be negative' if size.negative?
+    # Integer#negative? arrived in Ruby 2.3.
+    raise ArgumentError, 'size must not be negative' if size < 0
 
     size
   end
@@ -32,7 +33,7 @@ module Nanoid
     raise ArgumentError, 'alphabet must not be empty' if alphabet.empty?
   end
 
-  def self.simple_generate(size:)
+  def self.simple_generate(size)
     bytes = random_bytes(size)
 
     (0...size).reduce('') do |acc, i|
@@ -40,7 +41,7 @@ module Nanoid
     end
   end
 
-  def self.complex_generate(size:, alphabet:)
+  def self.complex_generate(size, alphabet)
     validate_alphabet!(alphabet)
 
     alphabet_size = alphabet.size
@@ -48,7 +49,7 @@ module Nanoid
     # (and would hit a Math::DomainError below), so short-circuit it.
     return alphabet[0] * size if alphabet_size == 1
 
-    mask = (2 << Math.log(alphabet_size - 1) / Math.log(2)) - 1
+    mask = alphabet_mask(alphabet_size)
     step = (1.6 * mask * size / alphabet_size).ceil
 
     id = ''
@@ -70,7 +71,7 @@ module Nanoid
     end
   end
 
-  def self.non_secure_generate(size:, alphabet:)
+  def self.non_secure_generate(size, alphabet)
     validate_alphabet!(alphabet)
 
     alphabet_size = alphabet.size
@@ -86,5 +87,13 @@ module Nanoid
 
   def self.random_bytes(size)
     SecureRandom.random_bytes(size).bytes
+  end
+
+  # Smallest bitmask of the form 2**n - 1 that covers every alphabet index.
+  # Integer shifts only: `2 << float` raises TypeError on Ruby 2.0.
+  def self.alphabet_mask(alphabet_size)
+    limit = 1
+    limit <<= 1 while limit <= alphabet_size - 1
+    limit - 1
   end
 end
