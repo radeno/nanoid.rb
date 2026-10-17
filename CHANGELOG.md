@@ -16,7 +16,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Changed
 
-- Development dependencies are limited to the last releases that still run on Ruby 2.0: `benchmark-ips` 2.7.2, `minitest` 5.11.3, and `rake` 12.3.3. `bundler`, `reek`, and `rubocop` are no longer dependencies.
+- Development dependencies are limited to the last releases that still run on Ruby 2.0: `benchmark-ips` 2.7.2, `minitest` 5.11.3, and `rake` 12.3.3. `bundler`, `reek`, and `rubocop` are no longer dependencies. Ruby 3.4 and newer also install `mutex_m` and `ostruct`, which those old gems still load.
 - `complex_generate` now requests `step` random bytes per loop iteration instead of `size`, matching upstream and avoiding wasted loop iterations caused by indexing past a too-small random buffer.
 - Fixed an `O(n^2)` slowdown in the collision test suite (`generated.keys.size` was evaluated eagerly on every iteration instead of the `O(1)` `generated.size`).
 
