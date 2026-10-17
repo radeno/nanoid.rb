@@ -18,6 +18,6 @@ Gem::Specification.new do |s|
   # does not declare a Ruby requirement so a newer release would be
   # installed on Ruby 2.0 and then fail.
   s.add_development_dependency 'benchmark-ips', '~> 2.7.2'
-  s.add_development_dependency 'minitest', '~> 5.11.3'
+  s.add_development_dependency 'minitest', '~> 5.12.0'
   s.add_development_dependency 'rake', '~> 12.3.3'
 end
