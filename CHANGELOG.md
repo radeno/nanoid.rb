@@ -7,6 +7,17 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Fixed
+
+- Fixed infinite loop in `Nanoid.generate` with a custom `alphabet` when `size` is `0` or a non-integer (ported fix from upstream NanoID's handling of these cases).
+- Fixed `Math::DomainError`/`FloatDomainError` when using a custom `alphabet` with 0 or 1 characters.
+- Raise a clear `ArgumentError` for a negative `size`, a non-numeric `size`, or an empty `alphabet`, instead of a cryptic internal error.
+
+### Changed
+
+- `complex_generate` now requests `step` random bytes per loop iteration instead of `size`, matching upstream and avoiding wasted loop iterations caused by indexing past a too-small random buffer.
+- Fixed an `O(n^2)` slowdown in the collision test suite (`generated.keys.size` was evaluated eagerly on every iteration instead of the `O(1)` `generated.size`).
+
 ## [2.0.0] - 2018-11-07
 
 - Compatibility with original Javascript implementation [NanoID 2.0](https://github.com/ai/nanoid/blob/master/CHANGELOG.md#20).
