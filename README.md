@@ -1,10 +1,20 @@
 # nanoid.rb
 
-This is ReadMe for version 2.0, if you looking for version compatible with NanoID 1.x look in [branch v1.x.](https://github.com/radeno/nanoid.rb/tree/v1.x)
+This is ReadMe for version 3.0. It requires Ruby >= 3.3. If you need an older
+Ruby, use [branch v2.x](https://github.com/radeno/nanoid.rb/tree/v2.x) (Ruby
+>= 2.0) or [branch v1.x](https://github.com/radeno/nanoid.rb/tree/v1.x)
+(compatible with NanoID 1.x).
 
 A tiny, secure URL-friendly unique string ID generator.
 
 Ruby implementation of original NanoID https://github.com/ai/nanoid
+
+Starting with 3.0, `Nanoid.generate` is a thin wrapper around Ruby's own
+`SecureRandom.alphanumeric`/`Random.alphanumeric` (stdlib, Ruby >= 3.3),
+rather than a hand-rolled random ID algorithm. It still fixes a couple of
+edge cases those stdlib methods get wrong: a single-character or empty
+`alphabet` makes `Random::Formatter#choose` loop forever, and a negative
+`size` is silently returned as `''` instead of raising.
 
 # Installation
 

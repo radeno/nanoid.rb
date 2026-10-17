@@ -1,26 +1,31 @@
 PATH
   remote: .
   specs:
-    nanoid (2.0.0)
+    nanoid (3.0.0)
 
 GEM
   remote: https://rubygems.org/
   specs:
-    benchmark-ips (2.7.2)
-    minitest (5.11.3)
-    rake (12.3.3)
+    benchmark-ips (2.15.1)
+    drb (2.2.3)
+    minitest (6.0.6)
+      drb (~> 2.0)
+      prism (~> 1.5)
+    prism (1.9.0)
+    rake (13.4.2)
 
 PLATFORMS
+  arm64-darwin-23
   ruby
 
 DEPENDENCIES
-  benchmark-ips (~> 2.7.2)
-  minitest (~> 5.11.3)
+  benchmark-ips (>= 2.7)
+  minitest (>= 5.10)
   nanoid!
-  rake (~> 12.3.3)
+  rake (>= 12.0)
 
 RUBY VERSION
-   ruby 2.4.2p198
+   ruby 3.3.12p206
 
 BUNDLED WITH
    2.5.22

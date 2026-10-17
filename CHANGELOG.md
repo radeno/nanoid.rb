@@ -7,6 +7,19 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [3.0.0] - 2026-10-17
+
+### Changed
+
+- **Breaking:** Minimum Ruby version raised to 3.3.
+- `Nanoid.generate` is now a thin wrapper around `SecureRandom.alphanumeric`/`Random.alphanumeric` (stdlib, via the `chars:` keyword added in Ruby 3.3) instead of a hand-rolled rejection-sampling algorithm. Same default `size` (21) and `alphabet`, same `non_secure` option.
+- Dev dependencies (`benchmark-ips`, `minitest`, `rake`) are no longer pinned to old releases; the Ruby 2.0 constraint that required that is gone.
+
+### Fixed
+
+- `Random::Formatter#choose` (what `.alphanumeric` calls) loops forever on a single-character or empty `alphabet` — its growth check never advances when the source has 0 or 1 elements. `Nanoid.generate` now short-circuits both cases instead of hanging.
+- A negative `size` now raises `ArgumentError` instead of silently returning `''` (stdlib's own behavior).
+
 ## [2.0.1] - 2026-10-17
 
 ### Fixed
