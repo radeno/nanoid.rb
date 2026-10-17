@@ -1,0 +1,44 @@
+name: Tests
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  test:
+    name: Ruby ${{ matrix.ruby }}
+    runs-on: ubuntu-22.04
+    strategy:
+      fail-fast: false
+      matrix:
+        # 2.2 is omitted: ruby/setup-ruby cannot run it on current Ubuntu images.
+        ruby:
+          - "2.0.0"
+          - "2.1"
+          - "2.3"
+          - "2.4"
+          - "2.5"
+          - "2.6"
+          - "2.7"
+          - "3.0"
+          - "3.1"
+          - "3.2"
+          - "3.3"
+          - "3.4"
+          - "4.0"
+    steps:
+      - uses: actions/checkout@v6
+      - uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: ${{ matrix.ruby }}
+          # Latest Bundler that this Ruby can run. The lockfile's Bundler
+          # 2.5 does not install on Ruby 2.0.
+          bundler: latest
+      - name: Install dependencies
+        run: |
+          # One lockfile cannot satisfy both Ruby 2.0 and current Ruby.
+          # The gemspec pins the dev gems, so resolving here is stable.
+          rm -f Gemfile.lock
+          bundle install --jobs 4 --retry 3
+      - name: Run tests
+        run: bundle exec rake test
