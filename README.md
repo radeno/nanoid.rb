@@ -13,8 +13,8 @@ The published 2.0.1 implementation is faster. Both calls below use size 21 and t
 
 | call | iterations/sec | time per ID |
 | --- | ---: | ---: |
-| `Nanoid.generate` | 366,029 | 2.73 μs |
-| `SecureRandom.alphanumeric` | 205,100 | 4.88 μs |
+| `Nanoid.generate` (Ruby >= 2.0) | 366,029 | 2.73 μs |
+| `SecureRandom.alphanumeric` (Ruby >= 3.3) | 205,100 | 4.88 μs |
 
 `SecureRandom.alphanumeric` is 1.78× slower.
 
