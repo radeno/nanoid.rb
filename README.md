@@ -1,9 +1,8 @@
 # nanoid.rb
 
-This is ReadMe for version 3.0. It requires Ruby >= 3.3. If you need an older
-Ruby, use [branch v2.x](https://github.com/radeno/nanoid.rb/tree/v2.x) (Ruby
->= 2.0) or [branch v1.x](https://github.com/radeno/nanoid.rb/tree/v1.x)
-(compatible with NanoID 1.x).
+**Version 3.0 is not released.** `gem install nanoid` still installs 2.0.1. Read that version's documentation in the [v2.x README](https://github.com/radeno/nanoid.rb/blob/v2.x/README.md).
+
+The rest of this page describes unreleased 3.0 work on `master`. It requires Ruby >= 3.3. For NanoID 1.x compatibility, see [branch v1.x](https://github.com/radeno/nanoid.rb/tree/v1.x).
 
 A tiny, secure URL-friendly unique string ID generator.
 
