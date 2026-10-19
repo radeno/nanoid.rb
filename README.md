@@ -2,6 +2,22 @@
 
 **Version 3.0 is not released.** `gem install nanoid` still installs 2.0.1. Read that version's documentation in the [v2.x README](https://github.com/radeno/nanoid.rb/blob/v2.x/README.md).
 
+On Ruby 3.3+ the same 21-character ID can be made without this gem:
+
+```ruby
+alphabet = "_-0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
+SecureRandom.alphanumeric(21, chars: alphabet.chars)
+```
+
+The published 2.0.1 implementation is faster. Both calls below use size 21 and the default NanoID alphabet (`benchmark-ips`, 2s warmup, 5s run, Ruby 3.3.12, arm64):
+
+| call | iterations/sec | time per ID |
+| --- | ---: | ---: |
+| `Nanoid.generate` | 366,029 | 2.73 μs |
+| `SecureRandom.alphanumeric` | 205,100 | 4.88 μs |
+
+`SecureRandom.alphanumeric` is 1.78× slower.
+
 The rest of this page describes unreleased 3.0 work on `master`. It requires Ruby >= 3.3. For NanoID 1.x compatibility, see [branch v1.x](https://github.com/radeno/nanoid.rb/tree/v1.x).
 
 A tiny, secure URL-friendly unique string ID generator.
