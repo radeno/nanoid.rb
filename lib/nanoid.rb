@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'securerandom'
 require 'random/formatter' # Gives `Random` the same `.alphanumeric` as `SecureRandom`.
 
