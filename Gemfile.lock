@@ -8,10 +8,11 @@ GEM
   specs:
     benchmark-ips (2.15.1)
     drb (2.2.3)
-    minitest (6.0.6)
+    minitest (6.1.0)
       drb (~> 2.0)
-      prism (~> 1.5)
-    prism (1.9.0)
+      prism (>= 1.5, < 3)
+    prism (2.1.0)
+    prism (2.1.0-arm64-darwin)
     rake (13.4.2)
 
 PLATFORMS
